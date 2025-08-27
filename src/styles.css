@@ -1,5 +1,19 @@
-/* GLOBAL */
+:root {
+    --primary-color: white;
+    --secondary-color: black; 
+}
 
+@font-face {
+    font-family: 'zelda_ui';
+    src: url(./assets/fonts/Calamity-Regular.otf);
+}
+
+@font-face {
+    font-family: 'hylia_main';
+    src: url(./assets/fonts/HyliaSerifBeta-Regular.otf);
+}
+
+/* GLOBAL */
 *,
 *::before,
 *::after {
@@ -12,24 +26,63 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    font-family: 'zelda_ui', sans-serif;
+}
+
+.background_container {
+    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
+    min-width: 60vw;
+    position: fixed;                
+    background-color: var(--secondary-color);      
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.background_img { /* Convert the inline image to a block-level element */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* HEADER */
 header {
-    position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     box-shadow: 10px 10px 20px rgb(0, 0, 0, 0.2);
     padding: 20px;
     width: 100%;
     max-width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    z-index: 1;
+    z-index: 2;
+    font-family: 'hylia_main', sans-serif;
 }
 
 nav {
     display: flex;
     justify-content: right;
+}
+
+/* CONTENT */
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 30px solid transparent;
+    padding: 15px;
+    border-image: url('./assets/ancientborder.png') 30 round;
+    height: 100vh;
+    z-index: 1;
+}
+
+#content > img {
+    width: 200px;
+    height: 290px;
 }
