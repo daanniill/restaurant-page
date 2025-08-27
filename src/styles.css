@@ -1,0 +1,35 @@
+/* GLOBAL */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* padding + border stay inside width/height */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--secondary-color);
+    box-shadow: 10px 10px 20px rgb(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    z-index: 1;
+}
+
+nav {
+    display: flex;
+    justify-content: right;
+}
