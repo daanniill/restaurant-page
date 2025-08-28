@@ -1,0 +1,28 @@
+:root {
+    --card-color: #b5a56f;
+    --card-secondary-color: #574f1e;
+}
+
+/* MENU */
+
+
+
+/* CARD */
+
+.card {
+    background-color: var(--card-color);
+    width: 350px;
+    height: 450px;
+    border-radius: 30px;
+    padding: 5px;
+    border: 5px solid transparent;
+    background-image: 
+        linear-gradient(var(--card-color), var(--card-color)),
+        linear-gradient(135deg, var(--card-color), var(--card-secondary-color));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

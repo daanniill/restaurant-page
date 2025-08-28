@@ -1,6 +1,7 @@
 import "./styles.css"
 import "./about.css"
 import "./home.css"
+import "./menu.css"
 import linkImage from './assets/link.png';
 
 function createHomeContent() {
@@ -76,7 +77,7 @@ function createAboutContent() {
     content.appendChild(wrapper);
 }
 
-createHomeContent()
+
 
 
 console.log('it works!')

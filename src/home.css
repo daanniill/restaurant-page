@@ -21,3 +21,14 @@
     text-shadow: 1px 1px 5px var(--secondary-color);
     margin-bottom: 30px;
 }
+
+#order {
+    padding: 15px 17px 15px 17px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+h4 {
+    color: var(--primary-color);
+    text-shadow: 1px 1px 5px var(--secondary-color);
+}
