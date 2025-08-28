@@ -1,8 +1,45 @@
 import "./styles.css"
+import "./about.css"
+import "./home.css"
 import linkImage from './assets/link.png';
 
+function createHomeSection() {
+    // Get the parent container (change selector if needed)
+    const content = document.querySelector("#content");
 
-function createHomeContent() {
+    // Title container
+    const titleContainer = document.createElement("div");
+    titleContainer.id = "title_container";
+
+    // Main heading
+    const h1 = document.createElement("h1");
+    h1.textContent = "Welcome to the Triforce Tavern";
+
+    // Subheading
+    const h3 = document.createElement("h3");
+    h3.textContent = "The Finest Establishment in Hyrule";
+
+    // Append headings
+    titleContainer.appendChild(h1);
+    titleContainer.appendChild(h3);
+
+    // Order button
+    const button = document.createElement("button");
+    button.id = "order";
+    button.textContent = "Order Now";
+
+    // Location tagline
+    const h4 = document.createElement("h4");
+    h4.textContent = "Find us East of Tarrey Town Today";
+
+    // Append everything to #content
+    content.appendChild(titleContainer);
+    content.appendChild(button);
+    content.appendChild(h4);
+}
+
+
+function createAboutContent() {
     // Get the existing content container
     const content = document.querySelector("#content");
 
