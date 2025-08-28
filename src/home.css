@@ -1,0 +1,23 @@
+ /* HOME */
+#title_container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 90%;
+}
+
+#title_container h1 {
+    font-size: 120px;
+    font-family: "hylia_main", sans-serif;
+    color: var(--primary-color);
+    font-weight: lighter;
+    text-shadow: 1px 1px 5px var(--secondary-color);
+}
+
+#title_container h3 {
+    font-size: 30px;
+    color: var(--primary-color);
+    font-weight: bolder;
+    text-shadow: 1px 1px 5px var(--secondary-color);
+    margin-bottom: 30px;
+}

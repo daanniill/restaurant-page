@@ -3,7 +3,7 @@ import "./about.css"
 import "./home.css"
 import linkImage from './assets/link.png';
 
-function createHomeSection() {
+function createHomeContent() {
     // Get the parent container (change selector if needed)
     const content = document.querySelector("#content");
 
