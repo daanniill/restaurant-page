@@ -1,6 +1,7 @@
 :root {
     --card-color: #b5a56f;
     --card-secondary-color: #574f1e;
+    --text-color: #443500;
 }
 
 /* MENU */
@@ -25,4 +26,53 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.curve-text {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 30px;
+  margin-bottom: -55px; /* pull image closer to text */
+}
+
+.curve-label {
+  font-size: 40px;
+  fill: var(--text-color);
+  font-weight: bold;
+}
+
+.card-img {
+  display: block;
+  max-width: 200px;  /* adjust image size */
+  margin: 0 auto;    /* center under text */
+}
+
+.card p {
+    margin: 10px 25px 10px 25px;
+    font-size: 15px;
+    color: var(--card-secondary-color);
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.order_sec {
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),   /* lighter left edge */
+        var(--text-color),          /* darker middle */
+        rgba(255, 255, 255, 0)    /* lighter right edge */
+    );
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 40px;
+}
+
+#rupee {
+    width: 40px;
+    height: 30px;
+    margin-right: -10px;
 }

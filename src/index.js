@@ -26,7 +26,7 @@ function createHomeContent() {
 
     // Order button
     const button = document.createElement("button");
-    button.id = "order";
+    button.id = "order_now";
     button.textContent = "Order Now";
 
     // Location tagline
