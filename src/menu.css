@@ -4,12 +4,27 @@
     --text-color: #443500;
 }
 
-/* MENU */
+/* MENU GALLERY*/
 
+#menu {
+    display: flex;
+    flex-wrap: nowrap;   /* keep cards in one row */
+    gap: 20px;           /* space between cards */
+    overflow-x: auto;    /* enable horizontal scrolling if overflow */
+    padding: 20px;
+    width: 100%;              /* take full screen width */
+    max-width: 1110px;   /* width of three cards plus 2 gaps and padding */
+    box-sizing: border-box;
+    scroll-snap-type: x mandatory;  /* enable snapping on x-axis */
+        /* fade effect */
+    mask-image: radial-gradient(circle, black, black 65% , transparent 80%);
+}
 
+#menu::-webkit-scrollbar {
+    display: none;
+}
 
 /* CARD */
-
 .card {
     background-color: var(--card-color);
     width: 350px;
@@ -26,6 +41,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 0 0 350px;
+    scroll-snap-align: start;
 }
 
 .curve-text {
