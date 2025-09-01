@@ -3,6 +3,7 @@ import "./about.css"
 import "./home.css"
 import "./menu.css"
 import linkImage from './assets/link.png';
+import { createMenuItem } from "./menu";
 
 function createHomeContent() {
     // Get the parent container (change selector if needed)
@@ -77,6 +78,7 @@ function createAboutContent() {
     content.appendChild(wrapper);
 }
 
+createMenuItem()
 
 
 
