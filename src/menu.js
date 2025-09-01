@@ -1,75 +1,166 @@
 import seafoodStewImg from "./assets/food/seafoodstew.png";
+import mushroomsImg from "./assets/food/mushrooms.png";
+import pizzaImg from "./assets/food/hyliantomatopizza.png";
+import gourmetMeatImg from "./assets/food/gourmetmeatandseafoodfry.png";
+import friedeggImg from "./assets/food/friedeggandrice.png";
+import fruitcakeImg from "./assets/food/fruitcake.png";
+import dubiousImg from "./assets/food/dubiousfood.png";
+
 import rupeeImgsrc from "./assets/rupee.png";
 
-export const createMenuItem = () => {
-    const menu = document.querySelector("#menu");
+let menu = []
 
-    // Card container
-    const card = document.createElement("div");
-    card.className = "card";
+class Dish {
+    constructor(name, img, description, price){
+        this._name = name;
+        this._img = img;
+        this._description = description;
+        this._price = price;
+    }
+    
+    get name() {
+        return this._name;
+    }
+    
+    get img() {
+        return this._img;
+    }
 
-    // SVG curve text
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("viewBox", "0 0 500 150");
-    svg.classList.add("curve-text");
+    get description() {
+        return this._description;
+    }
 
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute("id", "curve");
-    path.setAttribute("d", "M50,120 C150,10 350,10 450,120");
-    path.setAttribute("fill", "transparent");
-
-    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    text.classList.add("curve-label");
-    text.setAttribute("text-anchor", "middle");
-
-    const textPath = document.createElementNS("http://www.w3.org/2000/svg", "textPath");
-    textPath.setAttributeNS("http://www.w3.org/1999/xlink", "href", "#curve");
-    textPath.setAttribute("startOffset", "50%");
-    textPath.textContent = "Fragrant Seafood Stew";
-
-    // Build SVG
-    text.appendChild(textPath);
-    svg.appendChild(path);
-    svg.appendChild(text);
-
-    // Food image
-    const foodImg = document.createElement("img");
-    foodImg.src = seafoodStewImg;
-    foodImg.alt = "Seafood Stew";
-    foodImg.className = "card-img";
-
-    // Description
-    const desc = document.createElement("p");
-    desc.textContent = "A tasty dish of seafood and stambulb cooked in oil. Its aroma will whet your appetite.";
-
-    // Order section
-    const orderSec = document.createElement("div");
-    orderSec.className = "order_sec";
-
-    const rupeeImg = document.createElement("img");
-    rupeeImg.id = "rupee";
-    rupeeImg.src = rupeeImgsrc;
-
-    const price = document.createElement("div");
-    price.id = "price";
-    price.textContent = "15";
-
-    const orderBtn = document.createElement("button");
-    orderBtn.id = "order";
-    orderBtn.textContent = "Order";
-
-    // Build order section
-    orderSec.appendChild(rupeeImg);
-    orderSec.appendChild(price);
-    orderSec.appendChild(orderBtn);
-
-    // Assemble card
-    card.appendChild(svg);
-    card.appendChild(foodImg);
-    card.appendChild(desc);
-    card.appendChild(orderSec);
-
-    // Append to menu
-    menu.appendChild(card);
+    get price() {
+        return this._price;
+    }
 }
+
+export const createMenuItem = () => {
+
+    menu.forEach(food => {
+        const menu = document.querySelector("#menu");
+
+        // Card container
+        const card = document.createElement("div");
+        card.className = "card";
+
+        // SVG curve text
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttribute("viewBox", "0 0 500 150");
+        svg.classList.add("curve-text");
+
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("id", "curve");
+        path.setAttribute("d", "M50,120 C150,10 350,10 450,120");
+        path.setAttribute("fill", "transparent");
+
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.classList.add("curve-label");
+        text.setAttribute("text-anchor", "middle");
+
+        const textPath = document.createElementNS("http://www.w3.org/2000/svg", "textPath");
+        textPath.setAttributeNS("http://www.w3.org/1999/xlink", "href", "#curve");
+        textPath.setAttribute("startOffset", "50%");
+        textPath.textContent = food.name;
+
+        // Build SVG
+        text.appendChild(textPath);
+        svg.appendChild(path);
+        svg.appendChild(text);
+
+        // Food image
+        const foodImg = document.createElement("img");
+        foodImg.src = food.img;
+        foodImg.alt = "dish";
+        foodImg.className = "card-img";
+
+        // Description
+        const desc = document.createElement("p");
+        desc.textContent = food.description;
+
+        // Order section
+        const orderSec = document.createElement("div");
+        orderSec.className = "order_sec";
+
+        const rupeeImg = document.createElement("img");
+        rupeeImg.id = "rupee";
+        rupeeImg.src = rupeeImgsrc;
+
+        const price = document.createElement("div");
+        price.id = "price";
+        price.textContent = food.price;
+
+        const orderBtn = document.createElement("button");
+        orderBtn.id = "order";
+        orderBtn.textContent = "Order";
+
+        // Build order section
+        orderSec.appendChild(rupeeImg);
+        orderSec.appendChild(price);
+        orderSec.appendChild(orderBtn);
+
+        // Assemble card
+        card.appendChild(svg);
+        card.appendChild(foodImg);
+        card.appendChild(desc);
+        card.appendChild(orderSec);
+
+        // Append to menu
+        menu.appendChild(card);
+    });
+}
+
+// pre-populating menu
+const dish1 = new Dish(
+    "Fragrant Seafood Stew",
+    seafoodStewImg,
+    "A tasty dish of seafood and stambulb cooked in oil. Its aroma will whet your appetite.",
+    "15"
+)
+const dish2 = new Dish(
+    "Salt-Grilled Mushrooms",
+    mushroomsImg,
+    "A basic mushroom dish made by lightly salting mushrooms and grilling them.",
+    "10"
+)
+const dish3 = new Dish(
+    "Fried Egg and Rice",
+    friedeggImg,
+    "The soft egg yolk pairs well with the rice in this simple dish.",
+    "15"
+)
+const dish4 = new Dish(
+    "Hylian Tomato Pizza",
+    pizzaImg,
+    "A pizza made with fresh Hylian tomato. Slices of melty Hateno cheese make it irresistible",
+    "25"
+)
+const dish5 = new Dish(
+    "Gourmet Meat and Seafood Fry",
+    gourmetMeatImg,
+    "A marriage of the choicest cuts of meat and seafood. As delicious as it is filling!",
+    "50"
+)
+const dish6 = new Dish(
+    "Fruitcake",
+    fruitcakeImg,
+    "Making ample use of fruits found all over Hyrule, this cake is a must for celebrations.",
+    "15"
+)
+const dish7 = new Dish(
+    "Dubious Food",
+    dubiousImg,
+    "It's too gross to even look at. A bizarre smell issues forth from this heap. Eating it won't hurt you though...probably.",
+    "1"
+)
+
+menu.push(dish1);
+menu.push(dish2);
+menu.push(dish3);
+menu.push(dish4);
+menu.push(dish5);
+menu.push(dish6);
+menu.push(dish7);
+
+
 

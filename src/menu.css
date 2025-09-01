@@ -61,7 +61,8 @@
 
 .card-img {
   display: block;
-  max-width: 200px;  /* adjust image size */
+  height: 180px;
+  width: 180px;  /* adjust image size */
   margin: 0 auto;    /* center under text */
 }
 
