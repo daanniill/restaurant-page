@@ -2,10 +2,15 @@ import "./styles.css"
 import "./about.css"
 import "./home.css"
 import "./menu.css"
+import homeBackground from "./assets/botw2.png"
 import { createMenuItem, initCarousel} from "./menu";
 import { createAboutContent } from "./about";
 
 function createHomeContent() {
+    //set background
+    const bgimg = document.querySelector(".background_img");
+    bgimg.src = homeBackground;
+
     // Get the parent container (change selector if needed)
     const content = document.querySelector("#content");
 
