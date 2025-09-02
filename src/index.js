@@ -2,8 +2,8 @@ import "./styles.css"
 import "./about.css"
 import "./home.css"
 import "./menu.css"
-import linkImage from './assets/link.png';
 import { createMenuItem, initCarousel} from "./menu";
+import { createAboutContent } from "./about";
 
 function createHomeContent() {
     // Get the parent container (change selector if needed)
@@ -40,47 +40,50 @@ function createHomeContent() {
     content.appendChild(h4);
 }
 
+function menuControl() {
+    const home = document.querySelector("#home_page");
+    const menu = document.querySelector("#menu_page");
+    const about = document.querySelector("#about_page");
 
-function createAboutContent() {
-    // Get the existing content container
-    const content = document.querySelector("#content");
+    let curPage = "home"
+    pageUpdate(curPage)
 
-    const wrapper = document.createElement("div")
-    wrapper.setAttribute("class", "main")
+    // button listener for header
+    home.addEventListener("click", () => {
+        curPage = "home";
+        console.log("home")
+        pageUpdate(curPage)
+    });
+    menu.addEventListener("click", () => {
+        curPage = "menu";
+        console.log("menu")
+        pageUpdate(curPage)
+    });
+    about.addEventListener("click", () => {
+        curPage = "about";
+        console.log("about")
+        pageUpdate(curPage)
+    })
 
-
-    // Image
-    const img = document.createElement("img");
-    img.src = linkImage;
-    img.alt = "link";
-
-    // Info text
-    const info = document.createElement("div");
-    info.id = "info";
-
-    // Heading
-    const heading = document.createElement("h2");
-    heading.textContent = "Link";
-    
-    // description
-    const description = document.createElement('p')
-    description.id = "description"
-    description.textContent = `Welcome to Triforce Tavern, a dining hall for heroes, wanderers, and royalty alike.
-        Inspired by the world of The Legend of Zelda, our menu brings together hearty meals from across Hyrule — Goron-sized roasts, fresh Zora-inspired seafood, and sweet Lon Lon Ranch desserts.
-        Whether you’re gathering your party before a great quest or simply looking to restore your hearts after a long day, Triforce Tavern is the place where courage, wisdom, and power come together in every bite.`;
-
-    info.appendChild(heading)
-    info.appendChild(description)
-
-    // Append everything into #content
-    wrapper.appendChild(img);
-    wrapper.appendChild(info)
-    content.appendChild(wrapper);
 }
 
-createMenuItem()
-initCarousel()
+function pageUpdate(curPage) {
+    document.querySelector("#content").innerHTML = ''
+    // page initializer
+    if (curPage === "home") {
+        createHomeContent()
+    }
+    else if (curPage === "menu") {
+        createMenuItem()
+        initCarousel()
+    }
+    else {
+        createAboutContent()
+    }
+}
 
+
+menuControl()
 
 
 console.log('it works!')
