@@ -53,20 +53,29 @@ function menuControl() {
 
     // button listener for header
     home.addEventListener("click", () => {
-        curPage = "home";
-        console.log("home")
-        pageUpdate(curPage)
+        if (curPage !== "home")
+        {
+            curPage = "home";
+            console.log("home")
+            pageUpdate(curPage)
+        }   
     });
     menu.addEventListener("click", () => {
-        curPage = "menu";
-        console.log("menu")
-        pageUpdate(curPage)
+        if (curPage !== "menu") 
+        {
+            curPage = "menu";
+            console.log("menu")
+            pageUpdate(curPage)
+        }
     });
     about.addEventListener("click", () => {
-        curPage = "about";
-        console.log("about")
-        pageUpdate(curPage)
-    })
+        if (curPage !== "about")
+        {
+            curPage = "about";
+            console.log("about")
+            pageUpdate(curPage)
+        }
+    });
 
 }
 
@@ -76,6 +85,14 @@ function pageUpdate(curPage) {
     if (curPage === "home") {
         changeBackground(homeBackground)
         createHomeContent()
+
+        const order_now = document.querySelector("#order_now");
+        if (order_now) {
+            order_now.addEventListener("click", () => {
+                console.log("menu");
+                pageUpdate("menu");
+            });
+        }
     }
     else if (curPage === "menu") {
         changeBackground(kakarikoBg)
