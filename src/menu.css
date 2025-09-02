@@ -6,6 +6,13 @@
 
 /* MENU GALLERY*/
 
+#carousel-container {
+  position: relative;
+  width: calc(350px * 3 + 20px * 2); /* show 3 cards at once */
+  overflow: hidden;
+  margin: 0 auto;
+}
+
 #menu {
     display: flex;
     flex-wrap: nowrap;   /* keep cards in one row */

@@ -110,6 +110,30 @@ export const createMenuItem = () => {
     });
 }
 
+export const initCarousel = () => {
+    const carousel = document.querySelector("#menu");
+    const cards = Array.from(carousel.children);
+    const cardWidth = 370; // width + gap
+    const visibleCards = 3;
+    const scrollAmount = cardWidth * visibleCards;
+
+    for (let i = 0; i < visibleCards; i++) {
+        carousel.appendChild(cards[i].cloneNode(true));
+        carousel.insertBefore(cards[cards.length - 1 - i].cloneNode(true), carousel.firstChild);
+    }
+
+    carousel.scrollLeft = scrollAmount;
+
+    carousel.addEventListener("scroll", () => {
+        if (carousel.scrollLeft <= 0) {
+            carousel.scrollLeft = carousel.scrollWidth - scrollAmount * 2;
+        }
+        else if (carousel.scrollLeft >= carousel.scrollWidth - scrollAmount) {
+            carousel.scrollLeft = scrollAmount;
+        }
+    });
+};
+
 // pre-populating menu
 const dish1 = new Dish(
     "Fragrant Seafood Stew",
