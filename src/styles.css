@@ -13,6 +13,26 @@
     src: url(./assets/fonts/HyliaSerifBeta-Regular.otf);
 }
 
+@keyframes fadeInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 /* GLOBAL */
 *,
 *::before,
@@ -43,10 +63,13 @@ body {
 }
 
 .background_img { /* Convert the inline image to a block-level element */
+    animation: 2s fadeIn;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
 }
 
 button {

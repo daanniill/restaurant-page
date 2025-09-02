@@ -3,14 +3,12 @@ import "./about.css"
 import "./home.css"
 import "./menu.css"
 import homeBackground from "./assets/botw2.png"
+import kakarikoBg from "./assets/kakarikorain.png";
+import aboutBackground from './assets/totksunset.png';
 import { createMenuItem, initCarousel} from "./menu";
 import { createAboutContent } from "./about";
 
 function createHomeContent() {
-    //set background
-    const bgimg = document.querySelector(".background_img");
-    bgimg.src = homeBackground;
-
     // Get the parent container (change selector if needed)
     const content = document.querySelector("#content");
 
@@ -76,15 +74,33 @@ function pageUpdate(curPage) {
     document.querySelector("#content").innerHTML = ''
     // page initializer
     if (curPage === "home") {
+        changeBackground(homeBackground)
         createHomeContent()
     }
     else if (curPage === "menu") {
+        changeBackground(kakarikoBg)
         createMenuItem()
         initCarousel()
     }
     else {
+        changeBackground(aboutBackground)
         createAboutContent()
     }
+}
+
+function changeBackground(newSrc) {
+    const bg = document.querySelector(".background_img");
+
+    // Fade out
+    bg.style.opacity = 0;
+
+    setTimeout(() => {
+        // Change image once faded
+        bg.src = newSrc;
+
+        // Fade back in
+        bg.style.opacity = 1;
+    }, 500); // half transition time
 }
 
 

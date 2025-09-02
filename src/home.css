@@ -1,4 +1,10 @@
- /* HOME */
+/* HOME */
+#title_container, #content > button, #content > h4 {
+    opacity: 0;
+    animation: 2s fadeInTop forwards;
+    animation-delay: 0.5s;
+}
+
 #title_container {
     display: flex;
     flex-direction: column;

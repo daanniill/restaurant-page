@@ -1,17 +1,12 @@
 import linkImage from './assets/link.png';
-import aboutBackground from './assets/totksunset.png';
+
 
 export const createAboutContent = () => {
-    //set background
-    const bgimg = document.querySelector(".background_img");
-    bgimg.src = aboutBackground;
-
     // Get the existing content container
     const content = document.querySelector("#content");
 
     const wrapper = document.createElement("div")
     wrapper.setAttribute("class", "main")
-
 
     // Image
     const img = document.createElement("img");

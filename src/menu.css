@@ -6,6 +6,9 @@
 
 /* MENU */
 #menu_title {
+    opacity: 0;
+    animation: 2s fadeInTop forwards;
+    animation-delay: 0.5s;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -49,6 +52,7 @@
 
 /* CARD */
 .card {
+    opacity: 0;
     background-color: var(--card-color);
     width: 350px;
     height: 450px;

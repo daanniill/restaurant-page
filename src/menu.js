@@ -5,7 +5,6 @@ import gourmetMeatImg from "./assets/food/gourmetmeatandseafoodfry.png";
 import friedeggImg from "./assets/food/friedeggandrice.png";
 import fruitcakeImg from "./assets/food/fruitcake.png";
 import dubiousImg from "./assets/food/dubiousfood.png";
-import kakarikoBg from "./assets/kakarikorain.png";
 
 import rupeeImgsrc from "./assets/rupee.png";
 
@@ -37,11 +36,6 @@ class Dish {
 }
 
 export const createMenuItem = () => {
-    // set background
-    const bgimg = document.querySelector(".background_img");
-    bgimg.src = kakarikoBg;
-
-
     const title = document.createElement("div")
     title.setAttribute("id", "menu_title")
     const title_text = document.createElement("h1")
@@ -57,10 +51,13 @@ export const createMenuItem = () => {
 
     document.querySelector("#content").appendChild(carousel).appendChild(menu_container)
 
-    menu.forEach(food => {
+    menu.forEach((food, index) => {
         // Card container
         const card = document.createElement("div");
         card.className = "card";
+        card.style.animation = `fadeInTop 1s ease forwards`;
+        let delay = index * 300 + 500; // 300ms stagger
+        card.style.animationDelay = `${delay}ms`;
 
         // SVG curve text
         const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
