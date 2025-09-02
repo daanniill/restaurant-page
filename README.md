@@ -97,7 +97,6 @@ The optimized output will be generated in the `dist/` folder.
 
 ## 📸 Screenshots
 
-e.g. Home page, Menu carousel, and About page.*
 ![Home Page Preview](./src/assets/mainpage.png)
 ![Menu Page Preview](./src/assets/menupage.png)
 ![About Page Preview](./src/assets/aboutpage.png)
