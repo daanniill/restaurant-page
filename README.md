@@ -105,7 +105,7 @@ The optimized output will be generated in the `dist/` folder.
 
 ## 🙏 Credits
 
--   **Developer**: [@daanniill](https://github.com/daanniill)\
+-   **Developer**: [@daanniill](https://github.com/daanniill)
 -   **Game Assets & Screenshots**: © Nintendo (*The Legend of Zelda:
     Tears of the Kingdom*)
 
