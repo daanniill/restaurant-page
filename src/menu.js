@@ -36,10 +36,22 @@ class Dish {
 }
 
 export const createMenuItem = () => {
+    const title = document.createElement("div")
+    title.setAttribute("id", "menu_title")
+    const title_text = document.createElement("h1")
+    title_text.textContent = "MENU"
+
+    document.querySelector("#content").appendChild(title).appendChild(title_text)
+
+    const carousel = document.createElement("div");
+    carousel.setAttribute("id", "carousel_container")
+
+    const menu_container = document.createElement("div");
+    menu_container.setAttribute("id", "menu")
+
+    document.querySelector("#content").appendChild(carousel).appendChild(menu_container)
 
     menu.forEach(food => {
-        const menu = document.querySelector("#menu");
-
         // Card container
         const card = document.createElement("div");
         card.className = "card";
@@ -106,7 +118,7 @@ export const createMenuItem = () => {
         card.appendChild(orderSec);
 
         // Append to menu
-        menu.appendChild(card);
+        menu_container.appendChild(card);
     });
 }
 
